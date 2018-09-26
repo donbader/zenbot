@@ -18,7 +18,7 @@ c.mongo.replicaSet = null
 c.mongo.authMechanism = null
 
 // default selector. only used if omitting [selector] argument from a command.
-c.selector = 'gdax.BTC-USD'
+c.selector = 'binance.ETH-USDT'
 // name of default trade strategy
 c.strategy = 'trend_ema'
 
