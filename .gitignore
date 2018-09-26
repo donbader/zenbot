@@ -13,7 +13,6 @@ github
 config.js
 config.patch
 data/*
-conf.js
 conf-*
 conf_*
 !conf-sample.js
@@ -37,4 +36,4 @@ dist/*
 simulations/sim_*.json
 gen.*.bat
 gen.*.sh
-
+secrets.js

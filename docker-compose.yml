@@ -9,6 +9,7 @@ services:
       - ./extensions:/app/extensions
       - ./simulations:/app/simulations
       - ./models:/app/models
+      - ./secrets.js:/app/secrets.js
     links:
       - mongodb
     command: [ "trade", "--paper" ]
