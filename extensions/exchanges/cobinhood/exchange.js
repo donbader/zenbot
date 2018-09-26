@@ -3,21 +3,22 @@ const ccxt = require('ccxt')
   // eslint-disable-next-line no-unused-vars
   , colors = require('colors')
   , _ = require('lodash')
+  , client = require('node-cobinhood')
 
-module.exports = function binance (conf) {
+module.exports = function cobinhood (conf) {
   var public_client, authed_client
 
   function publicClient () {
-    if (!public_client) public_client = new ccxt.binance({ 'apiKey': '', 'secret': '' })
+    if (!public_client) public_client = new client({ 'key': '' })
     return public_client
   }
 
   function authedClient () {
     if (!authed_client) {
-      if (!conf.binance || !conf.binance.key || conf.binance.key === 'YOUR-API-KEY') {
-        throw new Error('please configure your Binance credentials in ' + path.resolve(__dirname, 'conf.js'))
+      if (!conf.cobinhood || !conf.cobinhood.key || conf.cobinhood.key === 'YOUR-API-KEY') {
+        throw new Error('please configure your cobinhood credentials in ' + path.resolve(__dirname, 'conf.js'))
       }
-      authed_client = new ccxt.binance({ 'apiKey': conf.binance.key, 'secret': conf.binance.secret })
+      authed_client = new client({ 'key': conf.cobinhood.key })
     }
     return authed_client
   }
@@ -35,7 +36,7 @@ module.exports = function binance (conf) {
 
   function retry (method, args, err) {
     if (method !== 'getTrades') {
-      console.error(('\nBinance API is down! unable to call ' + method + ', retrying in 20s').red)
+      console.error(('\ncobinhood API is down! unable to call ' + method + ', retrying in 20s').red)
       if (err) console.error(err)
       console.error(args.slice(0, -1))
     }
@@ -47,11 +48,11 @@ module.exports = function binance (conf) {
   var orders = {}
 
   var exchange = {
-    name: 'binance',
+    name: 'cobinhood',
     historyScan: 'forward',
     historyScanUsesTime: true,
-    makerFee: 0.1,
-    takerFee: 0.1,
+    makerFee: 0,
+    takerFee: 0,
 
     getProducts: function () {
       return require('./products.json')
@@ -149,7 +150,7 @@ module.exports = function binance (conf) {
         cb(null)
       }, function(err){
         // match error against string:
-        // "binance {"code":-2011,"msg":"UNKNOWN_ORDER"}"
+        // "cobinhood {"code":-2011,"msg":"UNKNOWN_ORDER"}"
 
         if (err) {
           // decide if this error is allowed for a retry

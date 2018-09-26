@@ -2,6 +2,7 @@
 let ccxt = require('ccxt')
 
 new ccxt.binance().fetch_markets().then(function(markets) {
+  console.log(markets[0].info)
   var products = []
 
   markets.forEach(function (market) {
