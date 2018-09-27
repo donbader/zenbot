@@ -47,8 +47,8 @@ c.kraken.tosagree = 'disagree'
 
 // to enable Binance trading, enter your API credentials:
 c.binance = {}
-c.binance.key = 'YOUR-API-KEY'
-c.binance.secret = 'YOUR-SECRET'
+c.binance.key = secrets.BINANCE.API_KEY
+c.binance.secret = secrets.BINANCE.SECRET_KEY
 
 // to enable Bittrex trading, enter your API credentials:
 c.bittrex = {}
