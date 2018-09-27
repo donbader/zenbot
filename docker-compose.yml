@@ -22,6 +22,26 @@ services:
     ports:
       - 20000:20000
 
+  real_money:
+    image: deviavir/zenbot:unstable
+    volumes:
+      - ./conf.js:/app/conf.js
+      - ./extensions:/app/extensions
+      - ./simulations:/app/simulations
+      - ./models:/app/models
+      - ./secrets.js:/app/secrets.js
+    links:
+      - mongodb
+    command: [ "trade" ]
+    restart: always
+    tty: true
+    depends_on:
+      - mongodb
+    environment:
+      - MONGODB_PORT_27017_TCP_ADDR=mongodb
+    ports:
+      - 20000:20000
+
   mongodb:
     image: mongo:latest
     volumes:
