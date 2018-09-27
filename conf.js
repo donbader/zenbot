@@ -1,4 +1,6 @@
-var secrets = require('./secrets')
+var secrets = {}
+try { secrets = require('./secrets') } catch(e) { console.log("Please create ./secrets.js for secrets") }
+
 var c = module.exports = {}
 
 // mongo configuration
