@@ -113,24 +113,24 @@ c.therock.secret = 'YOUR-SECRET'
 // Optional stop-order triggers:
 
 // sell if price drops below this % of bought price (0 to disable)
-c.sell_stop_pct = 4
+c.sell_stop_pct = 5
 // buy if price surges above this % of sold price (0 to disable)
-c.buy_stop_pct = 0
+c.buy_stop_pct = 0.95
 // enable trailing sell stop when reaching this % profit (0 to disable)
-c.profit_stop_enable_pct = 20
+c.profit_stop_enable_pct = 5
 // maintain a trailing stop this % below the high-water mark of profit
 c.profit_stop_pct = 1
 
 // Order execution rules:
 
 // avoid trading at a slippage above this pct
-c.max_slippage_pct = 5
+c.max_slippage_pct = 0.001
 // buy with this % of currency balance (WARNING : sim won't work properly if you set this value to 100)
-c.buy_pct = 99
+c.buy_pct = 40
 // sell with this % of asset balance (WARNING : sim won't work properly if you set this value to 100)
-c.sell_pct = 99
+c.sell_pct = 40
 // ms to adjust non-filled order after
-c.order_adjust_time = 5000
+c.order_adjust_time = 30000
 // avoid selling at a loss below this pct set to 0 to ensure selling at a higher price...
 c.max_sell_loss_pct = 25
 // avoid buying at a loss above this pct set to 0 to ensure buying at a lower price...
@@ -142,7 +142,7 @@ c.wait_for_settlement = 5000
 // % to mark down buy price for orders
 c.markdown_buy_pct = 0
 // % to mark up sell price for orders
-c.markup_sell_pct = 0
+c.markup_sell_pct = 2
 // become a market taker (high fees) or a market maker (low fees)
 c.order_type = 'maker'
 // when supported by the exchange, use post only type orders.
@@ -159,7 +159,7 @@ c.keep_lookback_periods = 50000
 // ms to poll new trades at
 c.poll_trades = 30000
 // amount of currency to start simulations with
-c.currency_capital = 1000
+c.currency_capital = 800
 // amount of asset to start simulations with
 c.asset_capital = 0
 // for sim, reverse time at the end of the graph, normalizing buy/hold to 0
