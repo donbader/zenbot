@@ -113,9 +113,9 @@ c.therock.secret = 'YOUR-SECRET'
 // Optional stop-order triggers:
 
 // sell if price drops below this % of bought price (0 to disable)
-c.sell_stop_pct = 0
+c.sell_stop_pct = 25
 // buy if price surges above this % of sold price (0 to disable)
-c.buy_stop_pct = 0
+c.buy_stop_pct = 25
 // enable trailing sell stop when reaching this % profit (0 to disable)
 c.profit_stop_enable_pct = 0
 // maintain a trailing stop this % below the high-water mark of profit
@@ -132,9 +132,9 @@ c.sell_pct = 99
 // ms to adjust non-filled order after
 c.order_adjust_time = 5000
 // avoid selling at a loss below this pct set to 0 to ensure selling at a higher price...
-c.max_sell_loss_pct = 25
+c.max_sell_loss_pct = 10
 // avoid buying at a loss above this pct set to 0 to ensure buying at a lower price...
-c.max_buy_loss_pct = 25
+c.max_buy_loss_pct = 10
 // ms to poll order status
 c.order_poll_time = 5000
 // ms to wait for settlement (after an order cancel)
