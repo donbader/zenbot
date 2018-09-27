@@ -3,13 +3,12 @@ const ccxt = require('ccxt')
   // eslint-disable-next-line no-unused-vars
   , colors = require('colors')
   , _ = require('lodash')
-  , client = require('node-cobinhood')
 
 module.exports = function cobinhood (conf) {
   var public_client, authed_client
 
   function publicClient () {
-    if (!public_client) public_client = new client({ 'key': '' })
+    if (!public_client) public_client = new ccxt.cobinhood({ 'apiKey': '' })
     return public_client
   }
 
@@ -18,7 +17,7 @@ module.exports = function cobinhood (conf) {
       if (!conf.cobinhood || !conf.cobinhood.key || conf.cobinhood.key === 'YOUR-API-KEY') {
         throw new Error('please configure your cobinhood credentials in ' + path.resolve(__dirname, 'conf.js'))
       }
-      authed_client = new client({ 'key': conf.cobinhood.key })
+      authed_client = new ccxt.cobinhood({ 'apiKey': conf.cobinhood.key })
     }
     return authed_client
   }
