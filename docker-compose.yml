@@ -35,6 +35,8 @@ services:
     image: mrvautin/adminmongo
     links:
       - mongodb
+    depends_on:
+      - mongodb
     tty: true
     ports:
       - "1234:1234"
