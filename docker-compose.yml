@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
 
-  sample_server:
+  playground:
     image: deviavir/zenbot:unstable
     volumes:
       - ./conf-sample.js:/app/conf.js
@@ -13,7 +13,6 @@ services:
     links:
       - mongodb
     command: [ "trade", "--paper" ]
-    restart: always
     tty: true
     depends_on:
       - mongodb
