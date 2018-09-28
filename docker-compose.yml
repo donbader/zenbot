@@ -2,10 +2,10 @@ version: '3.1'
 
 services:
 
-  server:
+  sample_server:
     image: deviavir/zenbot:unstable
     volumes:
-      - ./conf.js:/app/conf.js
+      - ./conf-sample.js:/app/conf.js
       - ./extensions:/app/extensions
       - ./simulations:/app/simulations
       - ./models:/app/models
@@ -22,10 +22,10 @@ services:
     ports:
       - 20000:20000
 
-  real_money:
+  binance_eth_usdt:
     image: deviavir/zenbot:unstable
     volumes:
-      - ./conf.js:/app/conf.js
+      - ./binance.ETH-USDT.conf.js:/app/conf.js
       - ./extensions:/app/extensions
       - ./simulations:/app/simulations
       - ./models:/app/models

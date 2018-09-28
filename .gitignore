@@ -11,6 +11,7 @@ conf/secret.json
 github.pub
 github
 config.js
+conf.js
 config.patch
 data/*
 conf-*
