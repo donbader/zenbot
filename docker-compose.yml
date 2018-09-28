@@ -5,7 +5,7 @@ services:
   playground:
     image: deviavir/zenbot:unstable
     volumes:
-      - ./conf-sample.js:/app/conf.js
+      - ./playground.conf.js:/app/conf.js
       - ./extensions:/app/extensions
       - ./simulations:/app/simulations
       - ./models:/app/models
