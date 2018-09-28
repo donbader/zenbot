@@ -47,7 +47,7 @@ c.mongo.authMechanism = null
 
 // ------------------------------------------------------------------------------------------------
 // default selector. only used if omitting [selector] argument from a command.
-c.selector = 'binance.ETH-USDT'
+c.selector = 'binance.ZIL-ETH'
 // name of default trade strategy
 c.strategy = 'trend_ema'
 
@@ -71,13 +71,13 @@ c.buy_pct = 40
 // sell with this % of asset balance (WARNING : sim won't work properly if you set this value to 100)
 c.sell_pct = 40
 // ms to adjust non-filled order after
-c.order_adjust_time = 30000
+c.order_adjust_time = 1000
 // avoid selling at a loss below this pct set to 0 to ensure selling at a higher price...
 c.max_sell_loss_pct = 25
 // avoid buying at a loss above this pct set to 0 to ensure buying at a lower price...
 c.max_buy_loss_pct = 0
 // ms to poll order status
-c.order_poll_time = 5000
+c.order_poll_time = 1000
 // ms to wait for settlement (after an order cancel)
 c.wait_for_settlement = 5000
 // % to mark down buy price for orders
@@ -100,7 +100,7 @@ c.keep_lookback_periods = 50000
 // ms to poll new trades at
 c.poll_trades = 30000
 // amount of currency to start simulations with
-c.currency_capital = 800
+c.currency_capital = 10000
 // amount of asset to start simulations with
 c.asset_capital = 0
 // for sim, reverse time at the end of the graph, normalizing buy/hold to 0
