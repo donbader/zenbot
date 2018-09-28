@@ -255,4 +255,4 @@ c.output  = {}
 c.output.api = {}
 c.output.api.on = true
 c.output.api.ip = '0.0.0.0' // IPv4 or IPv6 address to listen on, uses all available interfaces if omitted
-c.output.api.port = 20000 // 0 = random port
+c.output.api.port = 30000 // 0 = random port

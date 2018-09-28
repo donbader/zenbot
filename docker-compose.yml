@@ -20,7 +20,7 @@ services:
     environment:
       - MONGODB_PORT_27017_TCP_ADDR=mongodb
     ports:
-      - 20000:20000
+      - 30000:30000
 
   binance_eth_usdt:
     image: deviavir/zenbot:unstable
