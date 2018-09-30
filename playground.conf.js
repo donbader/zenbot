@@ -10,14 +10,14 @@ c.output  = {}
 c.output.api = {}
 c.output.api.on = true
 c.output.api.ip = '0.0.0.0' // IPv4 or IPv6 address to listen on, uses all available interfaces if omitted
-c.output.api.port = 30000 // 0 = random port
+c.output.api.port = 20000 // 0 = random port
 
 // ------- SECRETS --------------------------------------------------------------------------------
 // Exchange API keys:
 // to enable Binance trading, enter your API credentials:
 c.binance = {}
-c.binance.key = 'YOUR-API-KEY'
-c.binance.secret = 'YOUR-SECRET'
+c.binance.key = secrets.BINANCE.API_KEY
+c.binance.secret = secrets.BINANCE.SECRET_KEY
 
 // Notifiers:
 c.notifiers = {}
@@ -25,7 +25,7 @@ c.notifiers = {}
 // slack config
 c.notifiers.slack = {}
 c.notifiers.slack.on = false
-c.notifiers.slack.webhook_url = ''
+c.notifiers.slack.webhook_url = secrets.SLACK_WEBHOOK || ''
 // end slack config
 // ------------------------------------------------------------------------------------------------
 
@@ -47,37 +47,37 @@ c.mongo.authMechanism = null
 
 // ------------------------------------------------------------------------------------------------
 // default selector. only used if omitting [selector] argument from a command.
-c.selector = 'binance.ZIL-ETH'
+c.selector = 'binance.ETH-USDT'
 // name of default trade strategy
 c.strategy = 'trend_ema'
 
 // Optional stop-order triggers:
 
 // sell if price drops below this % of bought price (0 to disable)
-c.sell_stop_pct = 5
+c.sell_stop_pct = 2
 // buy if price surges above this % of sold price (0 to disable)
 c.buy_stop_pct = 0.95
 // enable trailing sell stop when reaching this % profit (0 to disable)
-c.profit_stop_enable_pct = 5
+c.profit_stop_enable_pct = 10
 // maintain a trailing stop this % below the high-water mark of profit
-c.profit_stop_pct = 1
+c.profit_stop_pct = 2.3
 
 // Order execution rules:
 
 // avoid trading at a slippage above this pct
 c.max_slippage_pct = 1
 // buy with this % of currency balance (WARNING : sim won't work properly if you set this value to 100)
-c.buy_pct = 40
+c.buy_pct = 99
 // sell with this % of asset balance (WARNING : sim won't work properly if you set this value to 100)
-c.sell_pct = 40
+c.sell_pct = 99
 // ms to adjust non-filled order after
-c.order_adjust_time = 1000
+c.order_adjust_time = 30000
 // avoid selling at a loss below this pct set to 0 to ensure selling at a higher price...
 c.max_sell_loss_pct = 25
 // avoid buying at a loss above this pct set to 0 to ensure buying at a lower price...
 c.max_buy_loss_pct = 0
 // ms to poll order status
-c.order_poll_time = 1000
+c.order_poll_time = 5000
 // ms to wait for settlement (after an order cancel)
 c.wait_for_settlement = 5000
 // % to mark down buy price for orders
@@ -100,7 +100,7 @@ c.keep_lookback_periods = 50000
 // ms to poll new trades at
 c.poll_trades = 30000
 // amount of currency to start simulations with
-c.currency_capital = 10000
+c.currency_capital = 800
 // amount of asset to start simulations with
 c.asset_capital = 0
 // for sim, reverse time at the end of the graph, normalizing buy/hold to 0
