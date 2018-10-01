@@ -71,13 +71,13 @@ c.buy_pct = 100
 // sell with this % of asset balance (WARNING : sim won't work properly if you set this value to 100)
 c.sell_pct = 100
 // ms to adjust non-filled order after
-c.order_adjust_time = 30000
+c.order_adjust_time = 10000
 // avoid selling at a loss below this pct set to 0 to ensure selling at a higher price...
 c.max_sell_loss_pct = 25
 // avoid buying at a loss above this pct set to 0 to ensure buying at a lower price...
 c.max_buy_loss_pct = 0
 // ms to poll order status
-c.order_poll_time = 5000
+c.order_poll_time = 8000
 // ms to wait for settlement (after an order cancel)
 c.wait_for_settlement = 5000
 // % to mark down buy price for orders
@@ -98,7 +98,7 @@ c.days = 14
 // defaults to a high number of lookback periods
 c.keep_lookback_periods = 50000
 // ms to poll new trades at
-c.poll_trades = 30000
+c.poll_trades = 8000
 // amount of currency to start simulations with
 c.currency_capital = 800
 // amount of asset to start simulations with
